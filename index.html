@@ -1,0 +1,84 @@
+<!--
+File: index.html
+GUI Assignment: Homework 5 - Scrabble
+Michael McGilvray, michael_mcgilvray@student.uml.edu
+Copyright (c) 2021 by Michael McGilvray. All rights reserved. May be freely 
+copied or excerpted for educational purposes with credit to the author.
+Updated by MM on December 13th, 2021 at 3:00PM
+
+This file is the structure of the scrabble game. It creates classes and tags
+that are used in both the css and js files to style and add functionality
+respectively. The main two parts of the HTML file are split between the board
+where tiles can be dragged and the tile rack where tiles start. Using draggables
+and droppables from the jQuery UI library, tiles can be dragged to play
+and at any point the game can be restarted using the "start over" button.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Homework 5</title>
+
+        <!-- jQuery UI CSS CDN-->
+        <!-- https://releases.jquery.com/ui/ -->
+        <link rel="stylesheet" href="https://releases.jquery.com/git/ui/jquery-ui-git.css">
+
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+
+        <div class="outsideContainer">
+            <h1>Homework 5 - Scrabble</h1>
+
+            <div class="container">
+                <div id="scoreContainer">
+                    <p id="word">Word: <span>-</span></p>
+                    <p id="score">Score: <span>0</span></p>
+                    <p id="remainingTiles">Remaining Tiles: <span>93</span></p>
+                    <p id="highestScore">Highest Score: <span>0</span></p>
+                </div>
+    
+                <hr>
+    
+                <div id="boardContainer">
+                    <div id="slot0" class="slot availableSlot"></div>
+                    <div id="slot1" class="slot doubleWord availableSlot"></div>
+                    <div id="slot2" class="slot availableSlot"></div>
+                    <div id="slot3" class="slot availableSlot"></div>
+                    <div id="slot4" class="slot availableSlot"></div>
+                    <div id="slot5" class="slot doubleWord availableSlot"></div>
+                    <div id="slot6" class="slot availableSlot"></div>
+                </div>
+    
+                <div id="buttonContainer">
+                    <button id="nextWordButton">Next Word</button>
+                    <button id="restartButton">Start Over</button>
+                </div>
+    
+                
+            </div>
+    
+            <!-- Tiles start here -->
+            <div id="tileRack"></div>
+    
+            <!-- Displays game over message and error messages -->
+            <div id="message"></div>
+        </div>
+
+
+        <!-- jQuery CDN -->
+        <!-- https://code.jquery.com/ -->
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+        <!-- jQuery UI Library CDN -->
+        <!-- https://releases.jquery.com/ui/ -->
+        <script src="https://releases.jquery.com/git/ui/jquery-ui-git.js"></script>
+
+        <!-- jQuery-Simulate CDN -->
+        <!-- https://cdnjs.com/libraries/jquery-simulate -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-simulate/1.1.1/jquery.simulate.js"></script>
+
+        <script src="js/index.js"></script>
+    </body>
+</html>

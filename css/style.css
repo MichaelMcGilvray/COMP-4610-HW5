@@ -1,0 +1,180 @@
+/* 
+File: style.css
+GUI Assignment: Homework 5 - Scrabble
+Michael McGilvray, michael_mcgilvray@student.uml.edu
+Copyright (c) 2021 by Michael McGilvray. All rights reserved. May be freely 
+copied or excerpted for educational purposes with credit to the author.
+Updated by MM on December 13th, 2021 at 3:00PM
+
+This file defines the look and style of the game Scrabble. It changes how both
+element created in HTML and programmatically in JavaScript are displayed and 
+how they are interacted with. Most of the elements in the scrabble game
+are generated while playing or when the webpage loads, and all reference this
+stylesheet to update how they should look.
+*/
+
+body{
+    font-family: "Verdana", sans-serif;
+    background: #edf2ff;
+    margin: 0px;
+    height: 100%;
+}
+hr{
+    width: 720px;
+    background-color: #a5a5a5;
+    height: 0.5px;
+}
+h1{
+    text-align: center;
+}
+
+/* Containers to style the background */
+.outsideContainer{
+    min-width: 880px;
+    margin: 0 100px;
+    padding: 10px;
+
+    border: 10px solid black;
+    border-top: 0;
+    border-radius: 0 0em 2em 2em;
+    background: #93d0ff;
+    text-align: center;
+}
+.container{
+    background-color: #FFFFFF;
+    width: 880px;
+    margin: 10px auto;
+    border-radius: 1.5em;
+}
+
+/* Holds current word, score, remaining tiles, and highest score */
+#scoreContainer{
+    margin: 50px auto 0 auto;
+    padding: 30px 0 10px 0;
+    text-align: center;
+}
+#scoreContainer p{
+    margin: 0 20px;
+    display: inline;
+}
+#scoreContainer p span{
+    font-weight: bold;
+}
+
+/* Words that are invalid will be displayed differently from valid words */
+.invalid{
+    color: rgb(165, 40, 40);
+}
+.valid{
+    color: rgb(111, 185, 111);
+}
+
+/* Holds the slots that the tiles will later be dragged into */
+#boardContainer{
+    text-align: center;
+    padding: 10px 0 50px 0;
+}
+.slot{
+    display: inline-block;
+    border: 1px black solid;
+    width: 70px;
+    height: 70px;
+    background: #e4e4e4;
+}
+/* A bonus score slot */
+.doubleWord {
+    vertical-align: top;
+    background: #FBC5C3;
+}
+.doubleWord::after {
+    line-height: 23px;
+    font-weight: bold;
+    content: "Double Word Score";
+}
+
+/* Holds the "next word" and "start over" buttons */
+#buttonContainer{
+    margin: 0 auto;
+    padding: 0 0 20px 0;
+    width: 70%;
+    text-align: center;
+}
+button{
+    margin: 0 10px;
+    padding: 10px;
+
+    transition: background-color 0.5s;
+    background: #2195EE;
+    border: none;
+    border-radius: 0.5em;
+
+    font-size: 18px;
+    color: #FFFFFF;
+
+    /* Change the cursor to a pointer when hovering over the button */
+    cursor: pointer;
+}
+button:hover{
+    transition: background-color 0.20s;
+    background: #1e89db;
+}
+button:active{
+    /* Shrink the button a little when it is clicked */
+    transform: scale(0.97);
+}
+
+/* The place where the tiles will be generated */
+#tileRack{
+    background-image: url("../images/Scrabble_TileRack.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    text-align: center;
+    margin: 50px auto;
+    width: 700px;
+    height: 200px;
+}
+.tile{
+    width: 70px;
+    height: 70px;
+    display: inline-block;
+    position: relative;
+    margin: 0 10px;
+
+    /* Center vertically */
+    top: 50%;
+    transform: translateY(-50%);
+    border: 1px black solid;
+}
+
+/* A slot that can receive tile */
+.availableSlot{
+    box-shadow: 0 0 7px #4bb1ff;
+}
+/* The slot that is being hovered over when dragging a draggable */
+.draggableHover{
+    box-shadow: 0 0 20px #4bb1ff;
+}
+/* A tile in the board that can be returned to the rack
+These tiles will be on the ends of a word */
+.unfrozenTile:hover{
+    box-shadow: 0 0 20px #fb8585;
+}
+
+/* A container that will diaplay error and game over messages */
+#message{
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+
+    /* width: 70%; */
+    display: inline-block;
+    margin: 0 auto;
+    padding: 10px 35px;
+    border-radius: 1.5em;
+}
+.gameOverMessage{
+    background: #d0fbc3;
+}
+.errorMessage{
+    background: #ff4b44;
+}
