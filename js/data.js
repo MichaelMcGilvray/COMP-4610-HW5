@@ -1,3 +1,17 @@
+/*
+File: data.js
+GUI Assignment: Homework 5 - Scrabble
+Michael McGilvray, michael_mcgilvray@student.uml.edu
+Copyright (c) 2021 by Michael McGilvray. All rights reserved. May be freely 
+copied or excerpted for educational purposes with credit to the author.
+Updated by MM on December 13th, 2021 at 3:00PM
+
+This file is stores the tile distribution and their respective values. It uses
+a JSON format, but stores the data in a variable so it can be used to generate
+tiles later. Each tile in pieces stores a letter, value, and the amount of that
+tile.
+*/
+
 var data = {
     "pieces": [
         {"letter":"A", "value":1,  "amount":9},

@@ -8,7 +8,7 @@ Updated by MM on December 13th, 2021 at 3:00PM
 
 This file serves as the behavior layer of the game Scrabble. It adds nearly all
 of the functionality with the help of jQuery, and allows the user to play a
-basic game of Scrabble. It adds tile generation using a JSON source file and
+basic game of Scrabble. It adds tile generation using a data source file and
 the ability for each tile to be dragged. Tiles can be dragged to any available
 slot on the board or back to the rack where they originate. Cases when the user 
 drops tiles outside of these locations are handled and also forces the user
@@ -88,23 +88,6 @@ $(document).ready(function () {
         for (var i = 0; i < 7; i++) {
             $("#slot" + i).addClass("availableSlot");
         }
-
-        // // Load tiles data from JSON
-        // $.getJSON("../pieces.json", function(entry) {
-        //     $.each(entry.pieces, function (key, val) {
-        //         // Push the tile as an object
-        //         for (var i = 0; i < val.amount; i++) {
-        //             tiles.push({
-        //                 letter: val.letter,
-        //                 value: val.value
-        //             });
-        //         }
-        //     });
-    
-        // When we are done loading in the tiles
-        // }).done(function() {
-
-        // })
     }
 
     // Add more tiles to the rack based on remaining tiles

@@ -14,10 +14,10 @@ functional. This excludes both extra credit options. I will go through each
 bullet point to briefly explain how it works:
 
 1. Tiles are randomly selected from a data structure (with proper distribution)
-    The distribution of tiles is obtained from the pieces.json file and loaded 
+    The distribution of tiles is obtained from the data.js file and loaded 
     into an array of tile objects. Each object contains the letter and value of
     that tile and to ensure the proper distribution, are created the number of
-    times specified by the amount field from the JSON file. This is all done
+    times specified by the amount field from the data.js file. This is all done
     in the restartGame() function.
 
 2. Tiles can be dragged and dropped onto the board
@@ -76,5 +76,5 @@ bullet point to briefly explain how it works:
 13. Game can be restarted
     Like I said previously, at any point the "start over" button can be pressed
     and the game will be reverted to its original state except for the highest
-    score. Meaning all tiles are regenerated from the JSON file, and the other
+    score. Meaning all tiles are regenerated from the data.js file, and the other
     counters are reset.
