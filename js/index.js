@@ -38,7 +38,6 @@ $(document).ready(function () {
         tiles = [];
 
         // Load tiles
-        console.log(data);
         for (var i = 0; i < data.pieces.length; i++) {
             // Push the tile as an object
             for (var j = 0; j < data.pieces[i].amount; j++) {
@@ -60,9 +59,9 @@ $(document).ready(function () {
             var randomIndex = Math.floor(Math.random() * tiles.length);
 
             if (tiles[randomIndex].letter == "_") {
-                tile.attr("src", "../images/Scrabble_Tile_Blank.jpg");
+                tile.attr("src", "images/Scrabble_Tile_Blank.jpg");
             } else {
-                tile.attr("src", "../images/Scrabble_Tile_" + tiles[randomIndex].letter +".jpg");
+                tile.attr("src", "images/Scrabble_Tile_" + tiles[randomIndex].letter +".jpg");
             }
             // tile.data("index", i);
             tile.data("tileData", tiles[randomIndex]);
