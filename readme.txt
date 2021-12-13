@@ -1,8 +1,8 @@
 Link to demo on GitHub:
-
+https://michaelmcgilvray.github.io/COMP-4610-HW5/
 
 Link to repository on GitHub:
-
+https://github.com/MichaelMcGilvray/COMP-4610-HW5
 
 
 

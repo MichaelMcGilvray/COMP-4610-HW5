@@ -122,9 +122,9 @@ $(document).ready(function () {
                 var randomIndex = Math.floor(Math.random() * tiles.length);
     
                 if (tiles[randomIndex].letter == "_") {
-                    tile.attr("src", "../images/Scrabble_Tile_Blank.jpg");
+                    tile.attr("src", "images/Scrabble_Tile_Blank.jpg");
                 } else {
-                    tile.attr("src", "../images/Scrabble_Tile_" + tiles[randomIndex].letter +".jpg");
+                    tile.attr("src", ".images/Scrabble_Tile_" + tiles[randomIndex].letter +".jpg");
                 }
                 tile.data("tileData", tiles[randomIndex]);
                 tile.data("tileID", "tile" + id);
