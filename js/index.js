@@ -37,61 +37,75 @@ $(document).ready(function () {
     function restartGame() {
         tiles = [];
 
-        // Load tiles data from JSON
-        $.getJSON("../pieces.json", function(entry) {
-            $.each(entry.pieces, function (key, val) {
-                // Push the tile as an object
-                for (var i = 0; i < val.amount; i++) {
-                    tiles.push({
-                        letter: val.letter,
-                        value: val.value
-                    });
-                }
-            });
+        // Load tiles
+        console.log(data);
+        for (var i = 0; i < data.pieces.length; i++) {
+            // Push the tile as an object
+            for (var j = 0; j < data.pieces[i].amount; j++) {
+                tiles.push({
+                    letter: data.pieces[i].letter,
+                    value: data.pieces[i].value
+                });
+            }
+        }
+
+        // Generate tiles
+        for(var i = 0; i < 7; i++) {
+            var tile = $("<img></img>");
+            tile.addClass("tile");
+            tile.addClass("inRack");
+            tile.attr("id", "tile" + i);
+
+            // Randomly select a tile
+            var randomIndex = Math.floor(Math.random() * tiles.length);
+
+            if (tiles[randomIndex].letter == "_") {
+                tile.attr("src", "../images/Scrabble_Tile_Blank.jpg");
+            } else {
+                tile.attr("src", "../images/Scrabble_Tile_" + tiles[randomIndex].letter +".jpg");
+            }
+            // tile.data("index", i);
+            tile.data("tileData", tiles[randomIndex]);
+            tile.data("tileID", "tile" + i);
+
+            // Remove the tile from tiles array
+            tiles.splice(randomIndex, 1);
+
+            $("#tileRack").append(tile);
+        }
+
+        $(".tile").draggable({
+            revert: function(valid) { revertTile(valid); }
+        });
+
+        // Resest score board
+        board = [{}, {}, {}, {}, {}, {}, {}];
+        score = 0;
+        $("#word").html("Word: <span>-</span>");
+        $("#score").html("Score: <span>" + score + "</span>");
+        $("#remainingTiles").html("Remaining Tiles: <span>" + tiles.length + "</span>");
+
+        // Set all slots to available
+        for (var i = 0; i < 7; i++) {
+            $("#slot" + i).addClass("availableSlot");
+        }
+
+        // // Load tiles data from JSON
+        // $.getJSON("../pieces.json", function(entry) {
+        //     $.each(entry.pieces, function (key, val) {
+        //         // Push the tile as an object
+        //         for (var i = 0; i < val.amount; i++) {
+        //             tiles.push({
+        //                 letter: val.letter,
+        //                 value: val.value
+        //             });
+        //         }
+        //     });
     
         // When we are done loading in the tiles
-        }).done(function() {
-            // Generate tiles
-            for(var i = 0; i < 7; i++) {
-                var tile = $("<img></img>");
-                tile.addClass("tile");
-                tile.addClass("inRack");
-                tile.attr("id", "tile" + i);
-    
-                // Randomly select a tile
-                var randomIndex = Math.floor(Math.random() * tiles.length);
-    
-                if (tiles[randomIndex].letter == "_") {
-                    tile.attr("src", "../images/Scrabble_Tile_Blank.jpg");
-                } else {
-                    tile.attr("src", "../images/Scrabble_Tile_" + tiles[randomIndex].letter +".jpg");
-                }
-                // tile.data("index", i);
-                tile.data("tileData", tiles[randomIndex]);
-                tile.data("tileID", "tile" + i);
-    
-                // Remove the tile from tiles array
-                tiles.splice(randomIndex, 1);
-    
-                $("#tileRack").append(tile);
-            }
+        // }).done(function() {
 
-            $(".tile").draggable({
-                revert: function(valid) { revertTile(valid); }
-            });
-
-            // Resest score board
-            board = [{}, {}, {}, {}, {}, {}, {}];
-            score = 0;
-            $("#word").html("Word: <span>-</span>");
-            $("#score").html("Score: <span>" + score + "</span>");
-            $("#remainingTiles").html("Remaining Tiles: <span>" + tiles.length + "</span>");
-
-            // Set all slots to available
-            for (var i = 0; i < 7; i++) {
-                $("#slot" + i).addClass("availableSlot");
-            }
-        })
+        // })
     }
 
     // Add more tiles to the rack based on remaining tiles
